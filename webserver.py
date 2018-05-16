@@ -25,14 +25,15 @@ def post (url, body):
 
 # Handles buzz request
 @app.route('/buzz', methods=['POST'])
-def sensor():
+def buzz():
     sensor = request.args.get('sensor')
     state = request.args.get('state')
 
     if sensor is not None and state is not None:
-        return handleSensor(sensor, state)
+        return 'Yo!';
     else:
         return 'Missing parameters!', 400
+
 
 @app.errorhandler(404)
 def page_not_found(error):
